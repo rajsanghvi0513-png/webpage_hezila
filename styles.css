@@ -275,12 +275,14 @@ h1 {
   margin-bottom: 28px;
   color: #2a2a2a;
   font-weight: 300;
+  transition: all 0.6s ease;
 }
 
-.story-content p:last-child {
-  font-size: 1.4rem;
+.story-content .ending {
+  font-size: 1.8rem;
   font-weight: 500;
-  margin-top: 50px;
+  margin-top: 60px;
+  letter-spacing: -0.5px;
 }
 
 .section {
