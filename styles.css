@@ -408,6 +408,15 @@ h1 {
   font-weight: 400;
 }
 
+.highlight h3 {
+  font-weight: 500;
+}
+
+.highlight::before {
+  content: "✦ ";
+  opacity: 0.6;
+}
+
 .menu-item span {
   font-size: 0.95rem;
   opacity: 0.6;
@@ -417,6 +426,11 @@ h1 {
   margin: 0;
   font-size: 0.9rem;
   opacity: 0.6;
+}
+
+.menu-item:hover {
+  transform: translateX(5px);
+  transition: 0.3s;
 }
 
 .visit-card {
@@ -627,7 +641,7 @@ h1 {
 section {
   opacity: 0;
   transform: translateY(60px);
-  transition: all 1s ease;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   margin: 0;
 }
 
@@ -683,7 +697,8 @@ section.visible {
 }
 
 .closing h2 {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
+  letter-spacing: -1px;
   max-width: 600px;
   line-height: 1.6;
 }
