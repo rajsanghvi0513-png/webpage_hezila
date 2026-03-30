@@ -1,11 +1,12 @@
 :root {
-  --bg: #f5f3ef;
-  --surface: #ffffff;
-  --text: #1d1d1f;
-  --muted: #595a5f;
-  --brand: #b75d2d;
-  --brand-dark: #8f451f;
-  --shadow: 0 10px 24px rgba(24, 24, 24, 0.08);
+  --bg: #121212;
+  --surface: #1c1c1c;
+  --text: #f5f5f5;
+  --muted: #a1a1a1;
+  --brand: #d97745;
+  --brand-dark: #a9552a;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   --radius: 18px;
 }
 
@@ -23,6 +24,17 @@ body {
   scroll-behavior: smooth;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(217, 119, 69, 0.12), transparent 70%);
+  z-index: -1;
+}
+
 p {
   line-height: 1.65;
 }
@@ -36,7 +48,7 @@ p {
   min-height: 90vh;
   background:
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08), transparent 40%),
-    linear-gradient(140deg, rgba(29, 29, 31, 0.75), rgba(29, 29, 31, 0.4)),
+    linear-gradient(140deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=80")
       center / cover no-repeat;
   color: #fff;
@@ -57,7 +69,8 @@ p {
   align-items: center;
   padding: 0.6rem 1rem;
   backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid var(--border);
   border-radius: 999px;
   margin-top: 1rem;
 }
@@ -161,13 +174,13 @@ h1 {
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s ease;
-  box-shadow: 0 6px 18px rgba(183, 93, 45, 0.25);
+  box-shadow: 0 8px 24px rgba(217, 119, 69, 0.35);
 }
 
 .btn:hover {
   background: var(--brand-dark);
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(183, 93, 45, 0.35);
+  box-shadow: 0 12px 32px rgba(217, 119, 69, 0.5);
 }
 
 .btn-outline {
@@ -204,7 +217,9 @@ h1 {
 .card,
 .menu-card,
 .visit-card {
-  background: var(--surface);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 1.3rem;
@@ -219,11 +234,11 @@ h1 {
 }
 
 .section + .section {
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 1px solid var(--border);
 }
 
 .section-menu {
-  background: #ece8e1;
+  background: #161616;
 }
 
 .section-title {
@@ -264,7 +279,7 @@ h1 {
   justify-content: space-between;
   gap: 0.6rem;
   padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--border);
 }
 
 .menu-card li:last-child {
@@ -272,7 +287,8 @@ h1 {
 }
 
 .menu-card li:hover {
-  transform: translateX(4px);
+  transform: translateX(6px);
+  color: var(--brand);
   transition: 0.2s ease;
 }
 
