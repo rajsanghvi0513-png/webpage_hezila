@@ -444,11 +444,11 @@ h1 {
 }
 
 /* CONNECT YOUR IMAGES */
-.image-1 {
+.image-bangalore {
   background-image: url('/images/T.jpg');
 }
 
-.image-2 {
+.image-ny {
   background-image: url('/images/R.jpg');
 }
 
@@ -474,4 +474,30 @@ h1 {
   font-size: 1.15rem;
   line-height: 1.9;
   margin-bottom: 20px;
+}
+
+
+/* DARK OVERLAY ON IMAGES */
+.image {
+  position: relative;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* TEXT ON IMAGE */
+.overlay-text {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  color: white;
+  z-index: 2;
+}
+
+.overlay-text h2 {
+  font-size: 3rem;
 }
