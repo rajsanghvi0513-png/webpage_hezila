@@ -187,13 +187,20 @@
         </div>
       </section>
 
-      <section class="section section-menu" id="menu">
+      <section class="section section-menu menu-section" id="menu">
         <div class="container menu-wrap">
-          <h2 class="section-title">The Menus</h2>
-          <p class="section-subtitle">Inspired by the chaptered elegance of destination cafés. Prices in INR (₹).</p>
+          <h2 class="section-title">The Menu</h2>
+          <p class="section-subtitle">Choose a chapter. Prices in INR (₹).</p>
 
-          <div class="menu-layout">
-            <article class="menu-panel">
+          <div class="menu-tabs">
+            <button class="tab active" data-tab="morning">Morning</button>
+            <button class="tab" data-tab="day">Day</button>
+            <button class="tab" data-tab="desserts">Desserts</button>
+            <button class="tab" data-tab="drinks">Drinks</button>
+          </div>
+
+          <div class="menu-content">
+            <article class="menu-panel active" id="morning">
               <h3>Savor the Morning</h3>
               <ul>
                 <li><span>Truffle Masala Eggs on Brioche</span><strong>₹375</strong></li>
@@ -205,43 +212,19 @@
               </ul>
             </article>
 
-            <article class="menu-panel">
-              <h3>Indo-Chinese Signatures</h3>
+            <article class="menu-panel" id="day">
+              <h3>Day Plates</h3>
               <ul>
                 <li><span>Veg Hakka Noodles</span><strong>₹344</strong></li>
                 <li><span>Paneer Chilli Dry</span><strong>₹404</strong></li>
                 <li><span>Chicken Manchurian</span><strong>₹449</strong></li>
                 <li><span>Schezwan Fried Rice</span><strong>₹359</strong></li>
-                <li><span>Chilli Garlic Momos</span><strong>₹299</strong></li>
-                <li><span>Gobi Manchurian</span><strong>₹374</strong></li>
-                <li><span>Burnt Garlic Chicken Noodles</span><strong>₹479</strong></li>
-                <li><span>Crispy Corn Pepper Salt</span><strong>₹329</strong></li>
-                <li><span>Dragon Chicken</span><strong>₹494</strong></li>
-                <li><span>Schezwan Paneer Bao</span><strong>₹389</strong></li>
-                <li><span>Wok Tossed Chili Basil Prawns</span><strong>₹569</strong></li>
-                <li><span>Kimchi Fried Rice</span><strong>₹419</strong></li>
-              </ul>
-            </article>
-
-            <article class="menu-panel">
-              <h3>Italian Favourites</h3>
-              <ul>
                 <li><span>Margherita Pizza</span><strong>₹524</strong></li>
                 <li><span>Pesto Penne Pasta</span><strong>₹494</strong></li>
-                <li><span>Alfredo Mushroom Pasta</span><strong>₹524</strong></li>
-                <li><span>Lasagna al Forno</span><strong>₹569</strong></li>
-                <li><span>Tiramisu Cup</span><strong>₹284</strong></li>
-                <li><span>Four Cheese Pizza</span><strong>₹644</strong></li>
-                <li><span>Spaghetti Aglio e Olio</span><strong>₹479</strong></li>
-                <li><span>Mushroom Risotto</span><strong>₹599</strong></li>
-                <li><span>Burrata Pomodoro</span><strong>₹629</strong></li>
-                <li><span>Roasted Garlic Focaccia</span><strong>₹329</strong></li>
-                <li><span>Truffle Wild Mushroom Gnocchi</span><strong>₹674</strong></li>
-                <li><span>Pepperoni Piccante Pizza</span><strong>₹659</strong></li>
               </ul>
             </article>
 
-            <article class="menu-panel">
+            <article class="menu-panel" id="desserts">
               <h3>Desserts</h3>
               <ul>
                 <li><span>Hazelnut Flower Mousse</span><strong>₹329</strong></li>
@@ -249,26 +232,17 @@
                 <li><span>Mandarin Cheesecake</span><strong>₹314</strong></li>
                 <li><span>Vanilla Dream Entremet</span><strong>₹359</strong></li>
                 <li><span>Pistachio Mille-feuille</span><strong>₹374</strong></li>
-                <li><span>Affogato al Caffe</span><strong>₹284</strong></li>
               </ul>
             </article>
 
-            <article class="menu-panel">
-              <h3>Beverage Menu</h3>
+            <article class="menu-panel" id="drinks">
+              <h3>Drinks</h3>
               <ul>
                 <li><span>Classic Cappuccino</span><strong>₹239</strong></li>
                 <li><span>Cold Coffee (Hazelnut)</span><strong>₹284</strong></li>
                 <li><span>Vietnamese Iced Latte</span><strong>₹299</strong></li>
-                <li><span>Fresh Lime Soda</span><strong>₹194</strong></li>
-                <li><span>Jasmine Iced Tea</span><strong>₹224</strong></li>
                 <li><span>Mocha Frappe</span><strong>₹329</strong></li>
-                <li><span>Hot Chocolate</span><strong>₹269</strong></li>
-                <li><span>Peach Kombucha</span><strong>₹299</strong></li>
-                <li><span>Snow Jasmine Green Tea</span><strong>₹254</strong></li>
                 <li><span>Caramel Sea Salt Latte</span><strong>₹314</strong></li>
-                <li><span>Yuzu Sparkling Cooler</span><strong>₹284</strong></li>
-                <li><span>Spanish Cortado</span><strong>₹224</strong></li>
-                <li><span>Rose Pistachio Milk</span><strong>₹269</strong></li>
               </ul>
             </article>
           </div>
@@ -326,6 +300,19 @@
 
       window.addEventListener("scroll", revealOnScroll);
       revealOnScroll();
+
+      const tabs = document.querySelectorAll(".tab");
+      const panels = document.querySelectorAll(".menu-panel");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+      });
     </script>
   </body>
 </html>
