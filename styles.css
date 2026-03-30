@@ -162,6 +162,12 @@ p {
   max-width: 520px;
 }
 
+.hero-sub {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
 .hero-cta {
   display: flex;
   gap: 0.75rem;
@@ -258,21 +264,6 @@ h1 {
 
 .section {
   padding: 5rem 0;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.section:nth-of-type(1) {
-  animation-delay: 0.1s;
-}
-
-.section:nth-of-type(2) {
-  animation-delay: 0.2s;
-}
-
-.section:nth-of-type(3) {
-  animation-delay: 0.3s;
 }
 
 .grid-two {
@@ -430,22 +421,27 @@ h1 {
 
   .nav-links {
     position: absolute;
-    top: calc(100% + 0.75rem);
+    top: 0;
     right: 0;
-    width: min(280px, 80vw);
-    background: rgba(17, 17, 17, 0.95);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1rem;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    display: none;
-    box-shadow: var(--shadow);
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    display: flex;
   }
 
   .nav-links.active {
-    display: flex;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: 1.5rem;
   }
 }
 
@@ -477,7 +473,7 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .text {
@@ -499,7 +495,8 @@ h1 {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  transform: scale(1.02);
+  transform: scale(1.03);
+  transition: transform 0.6s ease;
 }
 
 /* CONNECT YOUR IMAGES */
@@ -514,6 +511,7 @@ h1 {
 /* FULL STORY SECTION */
 .story-full {
   padding: 120px 20px;
+  padding-top: 180px;
   background: #f5f1eb;
   display: flex;
   justify-content: center;
@@ -572,6 +570,13 @@ h1 {
 
 
 section {
-  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
   margin: 0;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
