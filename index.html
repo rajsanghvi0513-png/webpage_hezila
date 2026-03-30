@@ -34,6 +34,9 @@
       <div class="hero-content container">
         <p class="eyebrow">Bangalore • Since 2021</p>
         <h1>Sleek cafe vibes, bold flavors.</h1>
+        <p class="hero-sub">
+          A story of distance, silence, and finding home
+        </p>
         <p>
           Welcome to <strong>Hezila Cafe</strong> - where smoky Indo-Chinese bowls meet
           rich Italian comfort plates, crafted fresh in the heart of Bangalore.
@@ -294,8 +297,9 @@
       });
 
       const overlays = document.querySelectorAll(".overlay-text h2");
+      const sections = document.querySelectorAll("section");
 
-      window.addEventListener("scroll", () => {
+      const revealOnScroll = () => {
         overlays.forEach((el) => {
           const top = el.getBoundingClientRect().top;
           if (top < window.innerHeight - 50) {
@@ -303,7 +307,17 @@
             el.style.transform = "translateY(0)";
           }
         });
-      });
+
+        sections.forEach((sec) => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < window.innerHeight - 100) {
+            sec.classList.add("visible");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
     </script>
   </body>
 </html>
