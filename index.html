@@ -16,12 +16,17 @@
   <body>
     <header class="hero" id="top">
       <nav class="nav">
-        <div class="container nav-inner">
+        <div class="container nav-container">
           <a class="logo" href="#top">Hezila</a>
-          <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#menu">Menu</a>
-          <a href="#contact">Visit</a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            ☰
+          </button>
+
+          <div class="nav-links" id="nav-links">
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Visit</a>
           </div>
         </div>
       </nav>
@@ -273,6 +278,21 @@
       <p>© 2026 Hezila Cafe, Bangalore.</p>
     </footer>
     <script>
+      const toggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
       const overlays = document.querySelectorAll(".overlay-text h2");
 
       window.addEventListener("scroll", () => {
