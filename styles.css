@@ -411,3 +411,93 @@ h1 {
     align-items: flex-start;
   }
 }
+
+/* SPLIT TEXT SECTION */
+.split {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.text {
+  max-width: 700px;
+}
+
+.text h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* FULL IMAGE SECTIONS */
+.image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* CONNECT YOUR IMAGES */
+.image-bangalore {
+  background-image: url('/images/T.jpg');
+}
+
+.image-ny {
+  background-image: url('/images/R.jpg');
+}
+
+/* FULL STORY SECTION */
+.story-full {
+  padding: 120px 20px;
+  background: #f5f1eb;
+  display: flex;
+  justify-content: center;
+}
+
+.story-content {
+  max-width: 700px;
+  text-align: center;
+}
+
+.story-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.story-content p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+
+/* DARK OVERLAY ON IMAGES */
+.image {
+  position: relative;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* TEXT ON IMAGE */
+.overlay-text {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  color: white;
+  z-index: 2;
+}
+
+.overlay-text h2 {
+  font-size: 3rem;
+}
