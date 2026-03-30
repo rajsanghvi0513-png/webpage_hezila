@@ -126,6 +126,11 @@ p {
   font-weight: 500;
   opacity: 0.95;
   position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
 }
 
 .nav-links a::after {
@@ -167,6 +172,9 @@ p {
   margin-bottom: 1rem;
   font-size: 4.5rem;
   letter-spacing: -1px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.2s ease forwards;
 }
 
 .hero-content p {
@@ -489,6 +497,14 @@ h1 {
   padding: 0 20px;
 }
 
+.split:nth-of-type(odd) {
+  background: #f5f1eb;
+}
+
+.split:nth-of-type(even) {
+  background: #efe9e1;
+}
+
 .text {
   max-width: 700px;
 }
@@ -510,6 +526,7 @@ h1 {
   background-position: center;
   transform: scale(1.03);
   transition: transform 0.6s ease;
+  animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
 /* CONNECT YOUR IMAGES */
@@ -608,6 +625,17 @@ section.visible {
 }
 
 .pause h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   max-width: 600px;
+  line-height: 1.6;
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1.03);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
